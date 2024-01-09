@@ -11,10 +11,16 @@ function Header(){
   </div>
  );
 }
+function Footer(){
+  return(
+    
+  );
+}
 function App() {
   return (
     <div className="App">
       <Header />
+      <Footer />
     </div>
   );
 }
