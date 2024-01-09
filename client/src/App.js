@@ -1,4 +1,4 @@
-import logo from './logo.svg';
+import Footer from './Component/footer'
 import './App.css';
 function Header(){
  return (
@@ -10,11 +10,6 @@ function Header(){
     </ul>
   </div>
  );
-}
-function Footer(){
-  return(
-    
-  );
 }
 function App() {
   return (
