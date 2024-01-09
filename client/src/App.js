@@ -1,5 +1,6 @@
-import Footer from './Component/footer'
 import './App.css';
+import Footer from './Component/footer.js'
+import NavBar from './Component/nav-bar.js'
 function Header(){
  return (
   <div>
@@ -14,7 +15,7 @@ function Header(){
 function App() {
   return (
     <div className="App">
-      <Header />
+      <div><NavBar/></div>
       <Footer />
     </div>
   );
