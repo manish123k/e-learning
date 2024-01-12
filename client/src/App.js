@@ -1,21 +1,15 @@
 import './App.css';
 import Footer from './Component/footer.js'
 import NavBar from './Component/nav-bar.js'
-function Header(){
- return (
-  <div>
-    <ul>
-      <li><a>Home</a></li>
-      <li><a>Login</a></li>
-      <li><a>Signup</a></li>
-    </ul>
-  </div>
- );
-}
+import {Programing,Backend} from './Component/programing.js';
 function App() {
   return (
     <div className="App">
       <div><NavBar/></div>
+      <h1>Programing language</h1>
+      <div><Programing /></div>
+      <h1>Backend language</h1>
+      <div><Backend /></div>
       <Footer />
     </div>
   );
