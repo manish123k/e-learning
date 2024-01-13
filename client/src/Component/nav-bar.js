@@ -26,7 +26,9 @@ const Navbar = () => {
   return (
     <div className={` shadow2 navbar ${isSticky ? 'sticky' : ''}`}>
       {/* Your navigation bar content goes here */}
-        <a><img src='/client/src/images/logo.jpg' alt='logo'/></a>
+        <a href='#home'>
+          <img src='client/src/images/logo.jpg' alt='logo'/>
+        </a>
         <a href="#home">Home</a>
         <a href="#service">Service</a>
         <a href="#about">About</a>
