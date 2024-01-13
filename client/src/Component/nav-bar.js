@@ -3,7 +3,6 @@
 
 import React, { useState, useEffect } from 'react';
 import './navbar.css';
-
 const Navbar = () => {
   const [isSticky, setSticky] = useState(false);
 
@@ -25,7 +24,7 @@ const Navbar = () => {
   }, []);
 
   return (
-    <div className={`navbar ${isSticky ? 'sticky' : ''}`}>
+    <div className={` shadow2 navbar ${isSticky ? 'sticky' : ''}`}>
       {/* Your navigation bar content goes here */}
         <a href='#home'>
           <img src='client/src/images/logo.jpg' alt='logo'/>
@@ -35,8 +34,8 @@ const Navbar = () => {
         <a href="#about">About</a>
         <a href="#contact">Contact</a>
         <div className="auth-buttons">
-            <button className="login-btn">Login</button>
-            <button className="signup-btn">Sign Up</button>
+            <a className="login-btn" href='/login'>Login</a>
+            <a className="signup-btn" href='/signUp'>Sign Up</a>
       </div>
     </div>
   );
