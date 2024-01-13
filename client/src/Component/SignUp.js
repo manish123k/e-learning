@@ -1,9 +1,12 @@
 import React from "react";
 import './SignUp.css'
 import Login from "./login";
+import Navbar from "./nav-bar";
 function SignUp() {
     return (
-        <div className="signup">
+        <div>
+            <Navbar></Navbar>
+            <div className="signup">
             <div className="container">
                 <div className="col rounded shadow1">
                     <h2 className="text-center" style={{ fontSize: "25px" }}>
@@ -20,6 +23,7 @@ function SignUp() {
                     </div>
                 </div>
             </div>
+        </div>
         </div>
     );
 }

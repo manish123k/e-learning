@@ -1,13 +1,10 @@
-
-// Navbar.js
-
 import React, { useState, useEffect } from 'react';
 import './navbar.css';
 const Navbar = () => {
   const [isSticky, setSticky] = useState(false);
 
   const handleScroll = () => {
-    if (window.scrollY > 50) {
+    if (window.scrollY > 60) {
       setSticky(true);
     } else {
       setSticky(false);
