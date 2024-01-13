@@ -1,39 +1,24 @@
-function Login(){
+import React from "react";
+import './SignUp.css'
+import Signup from '../Component/SignUp'
+function SignUp() {
     return (
-   <div class="container" id="container">
-        <div class="form-container sign-up-container">
-            <form action="#">
-                <h1>Create Account</h1>
-                <input type="text" placeholder="Username" />
-                <input type="email" placeholder="Email" />
-                <input type="password" placeholder="Password" />
-                <button>Sign Up</button>
-            </form>
-        </div>
-        <div class="form-container sign-in-container">
-            <form action="#">
-                <h1>Sign in</h1>
-                <input type="text" placeholder="Username or Email" />
-                <input type="password" placeholder="Password" />
-                <a href="#">Forgot your password?</a>
-                <button>Sign In</button>
-            </form>
-        </div>
-        <div class="overlay-container">
-            <div class="overlay">
-                <div class="overlay-panel overlay-left">
-                    <h1>Welcome Back!</h1>
-                    <p>To keep connected with us please login with your personal info</p>
-                    <button class="ghost" id="signIn">Sign In</button>
-                </div>
-                <div class="overlay-panel overlay-right">
-                    <h1>Hello, Friend!</h1>
-                    <p>Enter your personal details and start your journey with us</p>
-                    <button class="ghost" id="signUp">Sign Up</button>
+        <div className="login" >
+            <div className="container">
+                <div className="col rounded shadow1">
+                    <h2 className="text-center" style={{ fontSize: "25px" }}>
+                        Login
+                    </h2>
+                    <div>
+                        <input required type="text" placeholder="Email" className="tb"></input><br /><br/>
+                        <input required type="password" placeholder="Password" className="tb"></input><br /><br/>
+                        <button className="btn">Login</button><br/><br/>
+                        <label className="lb">Don't have an account?</label>
+                        <a href="/Signup" >Signup</a>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
- );
+    );
 }
-export default Login;
+export default SignUp;
