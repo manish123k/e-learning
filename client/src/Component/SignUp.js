@@ -40,10 +40,10 @@ function SignUp() {
                         Signup
                     </h2>
                     <div>
-                        <input required type="text" placeholder="Username" className="tb"></input><br />
-                        <input required type="text" placeholder="Email" className="tb" onChange={emailValidation}></input><br />
-                        <input required type="password" placeholder="Create password" className="tb" onChange={setPassword}></input><br />
-                        <input required type="password" placeholder="Confirm Password" className="tb" onChange={matchPassword}></input>
+                        <input required type="text" placeholder="Username*" className="tb"></input><br />
+                        <input required type="text" placeholder="Email*" className="tb" onChange={emailValidation}></input><br />
+                        <input required type="password" placeholder="Create password*" className="tb" onChange={setPassword}></input><br />
+                        <input required type="password" placeholder="Confirm Password*" className="tb" onChange={matchPassword}></input>
                         <div id="confPass"></div>
                         
                         <button className="btn" onClick={createUser}>Signup</button><br/><br/>
