@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './navbar.css';
+import otpVerifyForm from '../Component/otpVerifyForm'
 const Navbar = () => {
   const [isSticky, setSticky] = useState(false);
 
@@ -31,8 +32,8 @@ const Navbar = () => {
         <a href="#about">About</a>
         <a href="#contact">Contact</a>
         <div className="auth-buttons">
-            <a className="login-btn" href='/login'>Login</a>
-            <a className="signup-btn" href='/signUp'>Sign Up</a>
+            <a className="login-btn" href='/otpVerifyForm'>Login</a>
+           <a className="signup-btn" href='/signUp'>Sign Up</a>
       </div>
     </div>
   );
