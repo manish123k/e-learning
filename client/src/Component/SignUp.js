@@ -3,31 +3,51 @@ import './SignUp.css'
 import Navbar from "./nav-bar";
 function SignUp() {
     const [email,setEmail]=useState('')
-    const [emailValid,setEmailValid]=useState(true);
     const [pass,setPass]=useState('')
     const [cnfpass,setCnfPass]=useState('')
-    const setPassword=(e)=>{
-        setPass(e.target.value);
-    }
-    const matchPassword=(e)=>{
-        setCnfPass(e.target.value)
-        if(pass!==e.target.value){
-            document.getElementById("confPass").innerHTML="Password not match"        }
-        else{
-            document.getElementById("confPass").innerHTML=""
-        }
-    }
-    const emailValidation=(e)=>{
-        setEmail(e.target.value);
-        const regX=/^[\w.-]+@[a-zA-Z\d.-]+\.[a-zA-Z]{2,}$/
-        setEmailValid(regX.test(email))
-        console.log(emailValid)
-    }
-    const createUser=(e)=>{
-        if(!emailValid || pass!==cnfpass){
-            document.getElementById("confPass").innerHTML="Please Enter valid email/password" 
+    const [username,setUsername]=useState('')
+    
+   
+    const createUser= async(e)=>{
+        if(pass!==cnfpass){
+            console.log(email,pass,cnfpass)
+            document.getElementById("confPass").innerHTML="Password not match" 
         }else{
-            document.getElementById("confPass").innerHTML="perfect" 
+            try {
+                // Your API endpoint for user registration
+                const registrationEndpoint = 'http://localhost:5000/signup';
+          
+                // Make a POST request to the registration endpoint
+                const response = await fetch(registrationEndpoint, {
+                  method: 'POST',
+                  headers: {                                                                                                                                                                        
+                    'Content-Type': 'application/json',
+                  },
+                  body: JSON.stringify({
+                    username,
+                    email,
+                    pass,
+                    cnfpass,
+                  }),
+                });
+          
+                // Check if the request was successful (status code 2xx)
+                if (response.ok) {
+                  const result = await response.json();
+                  console.log('User registered successfully:', result);
+                  window.location.href="/otpVerifyForm"
+                  // Redirect or show a success message
+                } else {
+                  // Handle registration errors
+                  const errorData = await response.json();
+                  console.error('Registration failed:', errorData);
+                  // Display error message to the user
+                }
+              } catch (error) {
+                console.error('Error during registration:', error);
+                // Handle unexpected errors
+              }
+            
         }
     }
     return (
@@ -40,10 +60,10 @@ function SignUp() {
                         Signup
                     </h2>
                     <div>
-                        <input required type="text" placeholder="Username*" className="tb"></input><br />
-                        <input required type="text" placeholder="Email*" className="tb" onChange={emailValidation}></input><br />
-                        <input required type="password" placeholder="Create password*" className="tb" onChange={setPassword}></input><br />
-                        <input required type="password" placeholder="Confirm Password*" className="tb" onChange={matchPassword}></input>
+                        <input required type="text" placeholder="Username*" className="tb" onChange={(e)=>{setUsername(e.target.value)}}></input><br />
+                        <input required type="text" placeholder="Email*" className="tb" onChange={(e)=>{setEmail(e.target.value)}}></input><br />
+                        <input required type="password" placeholder="Create password*" className="tb" onChange={(e)=>{setPass(e.target.value)}}></input><br />
+                        <input required type="password" placeholder="Confirm Password*" className="tb" onChange={(e)=>{setCnfPass(e.target.value)}}></input>
                         <div id="confPass"></div>
                         
                         <button className="btn" onClick={createUser}>Signup</button><br/><br/>

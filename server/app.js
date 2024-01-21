@@ -4,8 +4,10 @@ const bcrypt=require('bcrypt')
 const nodemailer=require("nodemailer")
 const app = express();
 const { MongoClient } = require('mongodb');
+const cors = require('cors')
 const PORT = process.env.PORT || 5000;
 
+app.use(cors())
 app.use(bodyparser.json());
 const username = 'manishksbth';
 const password = 'Yky9wINY9k6k5gex';
@@ -23,8 +25,10 @@ async function generateOTP() {
 
 
 app.post('/signup',async(req,res)=>{
-    const {username,email,password,confirmpassword}=req.body;
-    const hashedPassword = await bcrypt.hash(password, 10);
+    const {username,email,pass,conf}=req.body;
+    // console.log(req.body);
+    // console.log(username,email,password,conf)
+    const hashedPassword = await bcrypt.hash(pass, 10);
 
     // Connect to MongoDB
     try{
